@@ -7,7 +7,7 @@ The whole idea behind this is to give a starting point for someone who wants to 
 
 You watch full video explaining how this repository is built and how you can easily build System Tray based apps with it.
 
-
+[![Electron.js, React.js and TypeScript based Desktop application boilerplate](https://img.youtube.com/vi/kvSN8vAwx0k/0.jpg)](https://www.youtube.com/watch?v=kvSN8vAwx0k)
 
 ## Getting Started
 
