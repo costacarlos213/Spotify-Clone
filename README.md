@@ -1,44 +1,36 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Electron.js and React.js starter with TypeScript
 
-## Available Scripts
+This repository contains the basic setup with very minimum requirements for getting started with Electron.js and React.js using TypeScript.
+The whole idea behind this is to give a starting point for someone who wants to develop desktop application with Electron.js and want to use Typescript + React.
 
-In the project directory, you can run:
+## Subscribe to chanel ❤️
 
-### `yarn start`
+You watch full video explaining how this repository is built and how you can easily build System Tray based apps with it.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The repository itself built in a way that there is 2 different apps Electron.js and React.js, so that you can develop your app UI inside a browser
+then compile that with Electron to see the final desktop app result.
 
-### `yarn build`
+```bash
+~# cd <project directory>
+~# yarn # OR npm install
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Starting Web app
+~# yarn start:web
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+# Starting Desktop app
+~# yarn build:web
+~# yarn build:desktop
+~# yarn start:desktop
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You can make any command combination out of what exists inside a package.json, but for my use-case this was working pretty fine.
 
-### `yarn eject`
+## System Tray UI
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+There is 2 different UI routes for React.js, and routing made over `#` (hash) for supporting Electron.js internal routing.
+The configuration was done already inside `trayWindow.ts` so that whenever you will click system tray icon (when desktop app is running),
+it will open a route `#/tray` which represents a file `src/apps/Tray/index.tsx`
