@@ -3,7 +3,7 @@
 This repository contains the basic setup with very minimum requirements for getting started with Electron.js and React.js using TypeScript.
 The whole idea behind this is to give a starting point for someone who wants to develop desktop application with Electron.js and want to use Typescript + React.
 
-## Subscribe to chanel ❤️
+## Subscribe to channel ❤️
 
 You watch full video explaining how this repository is built and how you can easily build System Tray based apps with it.
 
