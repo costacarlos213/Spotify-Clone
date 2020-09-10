@@ -1,0 +1,55 @@
+.buttons-div button + button {
+    margin-left: 1.6rem;
+    margin-right: 1.6rem;
+
+}
+
+.buttons-div {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons-div button {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    border-radius: 50%;
+    height: 1.8rem;
+    width: 1.8rem;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    width: 100%;   
+    position: sticky;
+    top: 0;
+    background-color: black;
+    position: -webkit-sticky;
+    justify-content: flex-end;
+    padding: 0.5rem 0;
+}
+
+.account-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.account-info > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 0.8rem;
+    font-family: 'Gotham-bold';
+}
+
+.account-info > div > img {
+    height: 1.6rem;
+    border-radius: 50%;
+    margin: 0 0.5rem 0 1.6rem;
+    background-color: #A9A9A9;
+}
+

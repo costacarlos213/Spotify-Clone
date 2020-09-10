@@ -1,0 +1,36 @@
+
+.chart {
+    width: 11.8rem;
+    margin-right: 1.2rem;
+    height: 16.8rem;
+    background-color: #2b2b2b;
+    border-radius: 8px;
+    padding: 1.2rem;
+    cursor: pointer;
+}
+
+.chart:hover:after {
+    position:relative;
+    top: -1rem;
+    float: right;
+    border-radius: 50%;
+    bottom:0;
+    border: 20px solid 	#1DB954;
+    content: "";
+}
+.chart img {
+    width: 100%;
+    height: 65%;
+}
+
+.chart h4 {
+    font: 500 0.9rem 'Gotham-bold';
+    margin: 1.2rem 0 0.8rem 0;
+}
+
+.chart p {
+    font-size: 0.5rem;
+    font-family:  'Gotham-bold';
+    color: #A9A9A9;
+    letter-spacing: 1px;
+}

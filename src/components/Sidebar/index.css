@@ -1,0 +1,103 @@
+.logo-div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1.6rem 1rem;
+}
+
+.logo-div img {
+    height: 2.4rem;
+}
+
+.nav-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: 'Gotham-bold';
+    width: 18vw;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}
+
+
+.content {
+    width: 100%;
+    padding: 0 0.5rem;
+    color: #A9A9A9;
+}
+
+.routes-div a {
+    padding-left: 1rem;
+    display: flex;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    color: #A9A9A9;
+    align-items: center;
+    background-color: transparent;
+    line-height: 2.6rem;
+    border-radius: 4px;
+    transition: color 0.5s;
+    cursor: pointer;
+}
+
+.routes-div a:hover {
+    color: white !important; 
+}
+
+.routes-div a span {
+    font-size: 0.8rem;
+    margin-left: 1.2rem;
+}
+
+.playlist-div {
+    padding: 1.6rem 1rem;
+    border-bottom: 1px solid #363636;
+}
+
+.playlist-div p {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 1.2rem;
+    font-size: 0.7rem;
+}
+
+.playlist-div div div{
+    display: flex;
+    align-items: center;
+}
+
+.playlist-div div + div {
+    margin-top: 0.8rem;
+}
+
+.playlist-div div:hover > span {
+    color: white;
+    
+}
+
+.playlist-div span {
+    transition: 0.5s;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.playlist-div button {
+    cursor: pointer;
+    color: #1C1C1C;
+    background-color: #A9A9A9;
+    border: 0;
+    height: 2rem;
+    width: 2rem;
+    outline: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;    
+    margin-right: 1.2rem;
+    transition: 0.5s;
+}
+
+.playlist-div div:hover > button {
+    background-color: white;
+}

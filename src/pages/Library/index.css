@@ -1,0 +1,44 @@
+.home-page {
+    font-family: 'Gotham-book';
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+.main-field {
+    width: 80%;
+    padding: 0rem 1.6rem;
+    margin-bottom: 10vh;
+}
+
+#library-inserted-field {
+    margin-right: auto;
+}
+
+.shelf {
+    display: flex;
+    flex-direction: row;
+}
+
+.shelf a, .shelf button{
+    font-family: 'Gotham-bold';
+    cursor: pointer;
+    background-color: #333;
+    border-radius: 4px;
+    outline: 0;
+    border: 0;
+    height: 2.4rem;
+    padding: 8px 16px;
+    color: white;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    margin-right: 0.8rem;
+    align-items: center;
+}
+
+.shelf a:active {
+    background-color: #2b2b2b;
+    transition: .5s;
+}

@@ -1,17 +1,15 @@
 import React from 'react';
-import {HashRouter, Switch, Route} from 'react-router-dom';
-import './App.css';
-import MainApp from './apps/Main';
-import TrayApp from './apps/Tray';
+import './assets/styles/global.css'
+import Routes from './routes'
+import Footer from './components/Footer';
+
 
 const App: React.FC = () => {
   return (
-    <HashRouter>
-      <Switch>
-        <Route path='/tray' component={TrayApp} />
-        <Route path='/' component={MainApp} />
-      </Switch>
-    </HashRouter>
+    <>
+      <Routes />
+      <Footer currentMusicIndex={0}/>
+    </>
   );
 }
 

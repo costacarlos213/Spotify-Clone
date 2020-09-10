@@ -1,0 +1,45 @@
+#home-page {
+    font-family: 'Gotham-book';
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+.main-field {
+    width: 80%;
+    padding: 0rem 1.6rem;
+    margin-bottom: 10vh;
+}
+
+#upgrade {    
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 1px solid #D3D3D3;
+    border-radius: 20px;
+    height: 2.4rem;
+    width: 8.6rem;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+}
+
+.albums {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.recently h1{
+    font: 500 1.4rem 'Gotham-bold';
+    margin: 1rem 0;
+}
+
+.recently + .recently {
+    margin: 2.4rem 0;
+}
+
+#home-inserted-field  {
+    margin-left: auto;
+}

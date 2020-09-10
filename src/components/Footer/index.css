@@ -1,0 +1,120 @@
+footer {
+    position: fixed;
+    width: 100vw;
+    align-self: flex-end;
+    background-color: #282828;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-audio {
+    width: 60% !important;
+    background-color: #282828 !important;
+    box-shadow: none !important;
+    transform: scale(0.85);
+}
+
+.rhap_time {
+    color: #B3B3B3 !important;
+    font: 500 0.8rem 'Gotham-book';
+}
+
+.rhap_progress-bar {
+    background-color: #535353 !important;
+}
+
+.rhap_progress-filled {
+    background-color: #B3B3B3 !important;
+}
+
+.rhap_progress-container:active .rhap_progress-filled, 
+.rhap_progress-container:hover .rhap_progress-filled {
+    background-color: #21BF48 !important;
+}
+
+.rhap_progress-indicator {
+    display: none;
+    
+}
+
+.rhap_volume-indicator,
+.rhap_progress-indicator {
+    border: none !important;
+    background-color: white !important;
+    transform: scale(0.7);
+}
+
+.rhap_progress-container:active .rhap_progress-indicator,
+.rhap_progress-container:hover .rhap_progress-indicator
+{
+    display: block;
+}
+
+.rhap_controls-section {
+    justify-content: center !important;
+}
+
+.rhap_main-controls {
+    margin: 0 1.6rem;
+}
+
+.rhap_volume-container {
+    position: absolute;
+    width: 8vw;
+    left: 75vw;
+    height: 1rem;
+    align-self: flex-end;
+}
+
+.rhap_volume-bar {
+    background-color: #B3B3B3 !important;
+}
+
+.controlers {
+    height: 1.2rem;
+}
+
+.rhap_main-controls-button {
+    align-items: center !important;
+    display: flex;
+}
+
+.rhap_button-clear,
+#shuffle {
+    color: #B3B3B3 !important; 
+}
+
+.rhap_button-clear:hover,
+#shuffle:hover {
+    color: white !important;
+}
+
+.rhap_repeat-button[aria-label='Enable Loop'] {
+    color: #21BF48 !important;
+}
+
+.shuffle {
+    height: 2.4rem !important;
+    cursor: pointer;
+}
+
+
+.playing-now-div {
+    position: absolute;
+    left: 1.6rem;
+    bottom: 1rem;
+    overflow: hidden;
+    max-width: 900px;
+    width: 200px;
+}
+
+.playing-now-div h3 {
+    font-family: 'Gotham-bold';
+}
+
+.playing-now-div p{
+    font: 500 0.8rem 'Gotham-book';
+    line-height: 1.6rem;
+    color: #B3B3B3;
+}
