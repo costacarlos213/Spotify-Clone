@@ -1,6 +1,11 @@
 import * as fs from 'fs'
 import * as path from 'path'
 declare global {
+    type PlaylistSongProps = {
+        name: string,
+        src?: string
+    }; 
+
     interface Window {
         ipcRenderer: any
     }

@@ -5,9 +5,11 @@ import {
   dialog
 } from "electron";
 import * as fs from 'fs'
-import * as path from "path";
+import * as path from 'path'
+
 
 let mainWindow: Electron.BrowserWindow | null;
+let newWindow: number
 
 function createWindow() {
   // Create the browser window.electron
@@ -44,24 +46,29 @@ function createWindow() {
 ipcMain.on('open-file-dialog', async (event) => {
   if (mainWindow) {
     try {
-      const files = await dialog.showOpenDialog(mainWindow, {
-        properties: ['openFile', 'multiSelections']
+      const { filePaths, canceled } = await dialog.showOpenDialog(mainWindow, {
+        properties: ['openFile', 'multiSelections'],
+        filters: [{
+          name: 'Audio',
+          extensions: ['mp3']
+        }]
       })
-      if (files) event.sender.send('selected-file', files)
+
+      if (!canceled) event.sender.send('selected-file', filePaths)
     } catch (err) {
       console.log(err)
     }
   }
 })
 
-ipcMain.on('load-file-request', (event) => {
+ipcMain.once('load-file-request', (event) => {
   const dir = path.join(__dirname, '../src/assets/musics/')
+  let loadedFiles: Array<PlaylistSongProps> = [{name: ''}]
 
-  if (dir) {
+  if (fs.existsSync(dir)) {
     const files = fs.readdirSync(dir)
-    let loadedFiles = [{}]
-
-    files.map(file => {
+    
+    files.map(file => { 
       loadedFiles.push({
         name: path.basename(file, path.extname(file)),
         src: path.join(dir, file)
@@ -70,12 +77,17 @@ ipcMain.on('load-file-request', (event) => {
 
     loadedFiles.shift()
 
-    event.sender.send('loaded-file', loadedFiles)
-
   } else {
     fs.mkdir(path.join(dir), (err) => console.log(err))
-    event.sender.send('loaded-file', false)
+    loadedFiles.push({
+      name: 'created-dir'
+    })
   }
+  event.sender.send('loaded-file', loadedFiles)
+})
+
+ipcMain.once('footer-load', (event) => {
+  newWindow = event.sender.id
 })
 
 app.on("ready", async () => {

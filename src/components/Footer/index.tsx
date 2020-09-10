@@ -1,41 +1,45 @@
 import React, { useState, useEffect } from 'react'
 import './index.css'
-import isElectron from 'is-electron';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player'
-import * as path from 'path'
+import isElectron from 'is-electron'
+import { basename, extname } from 'path'
 import normalize from 'normalize-path'
 
 interface PlayListState {
     currentMusicIndex: number,
 }
 
+let songs: Array<PlaylistSongProps> = [
+    { name: '', src: '' }
+]
+
+window.ipcRenderer.on('selected-file', (event: any, filePaths: any) => {
+    filePaths.map((Path: string) => {
+        return songs.push({
+            name: basename(normalize(Path), extname(Path)),
+            src: normalize(Path)
+        })
+    })
+})
+
 const Footer: React.FC<PlayListState> = ({ currentMusicIndex }) => {
     const [playingIndex, setPlayingIndex] = useState(currentMusicIndex)
-    const [playlist, setPlaylist] = useState([{ name: '', src: '' }])
+    const [playlist, setPlaylist] = useState<Array<PlaylistSongProps>>([{ name: '', src: '' }])
+
+    if (isElectron()) {
+        window.ipcRenderer.once('loaded-file', (event: any, paths: Array<PlaylistSongProps>) => {
+            songs = paths
+            setPlaylist(paths)
+        })
+    }
 
     useEffect(() => {
         window.ipcRenderer.send('load-file-request')
     }, [])
 
-    if (isElectron()) {
-        window.ipcRenderer.on('loaded-file', (event: any, paths: any) => {
-            setPlaylist(paths)
-        })
-        
-        window.ipcRenderer.on('selected-file', (event: any, paths: any) => {
-            paths.filePaths.map(async (file: string) => {
-                const previewPlaylist = playlist
-                if(previewPlaylist[0].src === "") previewPlaylist.shift()
-                
-                previewPlaylist.push({ 
-                    name: path.basename(normalize(file), path.extname(file)), 
-                    src: file 
-                })
-
-                setPlaylist(previewPlaylist)
-            })
-        })
-    }
+    useEffect(() => {
+        setPlaylist(songs)
+    }, [songs])
 
     function handleClickPrevious() {
         if (playingIndex === 0) {
@@ -57,18 +61,19 @@ const Footer: React.FC<PlayListState> = ({ currentMusicIndex }) => {
 
     return (
         <footer>
-            {playlist[playingIndex].name &&
+            {playlist[playingIndex].src &&
                 <div className="playing-now-div">
                     <h3>Playing Now</h3>
                     <p>{playlist[playingIndex].name}</p>
                 </div>
             }
+            
             <AudioPlayer
                 onEnded={handleClickNext}
                 autoPlay={false}
                 showDownloadProgress={false}
                 autoPlayAfterSrcChange={true}
-                src={playlist[playingIndex].src}
+                src={playlist[playingIndex].src ? playlist[playingIndex].src : ''}
                 className="main-audio"
                 layout="stacked-reverse"
                 showSkipControls={true}
